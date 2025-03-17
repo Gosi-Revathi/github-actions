@@ -1,4 +1,15 @@
-FROM nginx[D[D[D[N[C[C[C[C:latest
-RUN rm -rf/usr/share/nginx/html/
-COPY index.html /usr/share/nginx/html/[A[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D /usr/share/nginx/html/[B[C[C[C[C[C[C[D
+# Use the official Nginx image
+FROM nginx:latest
+
+# Remove default Nginx HTML files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy your custom HTML file
+COPY index.html /usr/share/nginx/html/
+
+# Expose port 80 for web access
 EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+:
